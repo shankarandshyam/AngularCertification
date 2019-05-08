@@ -1,0 +1,1580 @@
+<div class="col-sm-12 panelcustom">
+    <p-tabMenu #menuItems class="col-sm-12 custombord" [model]="items" [activeItem]="activeItem" (click)="activateMenu()">
+        <ng-template class="nomargin" pTemplate="item" let-item let-i="index">
+          <p> item content</p>
+        </ng-template>
+      </p-tabMenu>
+</div>
+
+<div class="">
+  <div class="col-sm-4">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-cogs"></i>&nbsp; Marketing
+      </div>
+    </div>
+    <p-tree [value]="files" selectionMode="single" [(selection)]="selectedFile" (onNodeSelect)="nodeSelect($event)">
+    </p-tree>
+  </div>
+
+  <div class="tab-content col-sm-8">
+
+    <!-- For Highlights Tab -->
+    <div *ngIf="activeItem['label']=='Highlights'">
+      <div class="row">
+        <div class="col-sm-12">
+          <div *ngIf="mainvalue==='Summary'|| mainvalue==null" class="grey-cararra table-responsive">
+            <table class="table table-bordered text-center table-striped" id="">
+              <thead>
+                <tr>
+                  <th scope="col">KRA</th>
+                  <th scope="col">KPI</th>
+                  <th scope="col">MAX</th>
+                  <th scope="col">MIN</th>
+                  <th scope="col">Average</th>
+                  <th scope="col">Target</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="7" scope="row">Business Development</td>
+                  <td>Prospects</td>
+                  <td>90</td>
+                  <td>50</td>
+                  <td>75</td>
+                  <td>90</td>
+                </tr>
+                <tr>
+                  <td>Active Leads</td>
+                  <td>85</td>
+                  <td>48</td>
+                  <td>69</td>
+                  <td>90</td>
+                </tr>
+                <tr>
+                  <td>Future Leads</td>
+                  <td>75</td>
+                  <td>45</td>
+                  <td>66</td>
+                  <td>90</td>
+                </tr>
+                <tr>
+                  <td>Parallel Projects</td>
+                  <td>75</td>
+                  <td>42</td>
+                  <td>66</td>
+                  <td>90</td>
+                </tr>
+                <tr>
+                  <td>Conversion Ratio</td>
+                  <td>75</td>
+                  <td>42</td>
+                  <td>66</td>
+                  <td>90</td>
+                </tr>
+                <tr>
+                  <td>Wins</td>
+                  <td>75</td>
+                  <td>42</td>
+                  <td>66</td>
+                  <td>90</td>
+                </tr>
+                <tr>
+                  <td>Loses</td>
+                  <td>75</td>
+                  <td>42</td>
+                  <td>66</td>
+                  <td>90</td>
+                </tr>
+                <tr>
+                  <td rowspan="2">Reputation</td>
+                  <td>Glassdoor Reviews</td>
+                  <td>4.8</td>
+                  <td>2.2</td>
+                  <td>3.9</td>
+                  <td>4.9</td>
+                </tr>
+                <tr>
+                  <td>Google Reviews</td>
+                  <td>8.8</td>
+                  <td>6.2</td>
+                  <td>7.7</td>
+                  <td>9.0</td>
+                </tr>
+                <tr>
+                  <td rowspan="3" scope="row">Coverage</td>
+                  <td>Mail</td>
+                  <td>500</td>
+                  <td>220</td>
+                  <td>350</td>
+                  <td>750</td>
+                </tr>
+                <tr>
+                  <td>Social</td>
+                  <td>5000</td>
+                  <td>2200</td>
+                  <td>3950</td>
+                  <td>5900</td>
+                </tr>
+                <tr>
+                  <td>Voice</td>
+                  <td>1500</td>
+                  <td>1220</td>
+                  <td>1350</td>
+                  <td>2000</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+
+          </div>
+
+          <div class="border" *ngIf="mainvalue==='Prospects'">
+            <div class="col-sm-12 portlet-title">
+              <div class="caption">
+                &nbsp;Prospects
+              </div>
+
+            </div>
+            <div [chart]="prospects"></div>
+
+          </div>
+          <div class="border" *ngIf="mainvalue==='Future Leads'">
+            <div class="col-sm-12 portlet-title">
+              <div class="caption">
+                &nbsp;Future Leads
+              </div>
+            </div>
+            <div class="col-sm-12" style="background-color:white;">
+              <div class="col-sm-8">
+
+              </div>
+              <div class="col-sm-4 pull-right margin-top">
+                <mat-select placeholder="Select Month" [(value)]="selected" class="form-control marginbtn">
+                  <mat-option *ngFor="let month of months" [value]="month.viewValue">
+                    {{month.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </div>
+
+            </div>
+            <div [chart]="futureleads"></div>
+
+
+          </div>
+
+          <div class="" style="margin-top:20px;" *ngIf="mainvalue==='Future Leads'">
+            <table class="table table-bordered table-striped text-center margin-top-10" id="">
+              <thead>
+                <tr>
+                  <th scope="col">Weeks</th>
+                  <th scope="col">Leads</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+
+                  <td>1st Week</td>
+                  <td>15</td>
+                </tr>
+                <tr>
+                  <td>2nd Week</td>
+                  <td>25</td>
+                </tr>
+                <tr>
+                  <td>3rd Week</td>
+                  <td>27</td>
+                </tr>
+                <tr>
+                  <td>4th Week</td>
+                  <td>22</td>
+                </tr>
+
+
+
+              </tbody>
+            </table>
+
+          </div>
+
+
+          <div class="border" *ngIf="mainvalue==='Active Leads'">
+            <div class="col-sm-12 portlet-title">
+              <div class="caption">
+                &nbsp;Active Leads
+              </div>
+
+            </div>
+
+            <div class="col-sm-12" style="background-color:white;">
+              <div class="col-sm-8">
+
+              </div>
+              <div class="col-sm-4 pull-right margin-top">
+                <mat-select placeholder="Select Month" [(value)]="selected" class="form-control marginbtn">
+                  <mat-option *ngFor="let month of months" [value]="month.viewValue">
+                    {{month.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </div>
+
+            </div>
+
+            <div [chart]="activeleads"></div>
+
+          </div>
+
+          <div class="" style="margin-top:20px;" *ngIf="mainvalue==='Active Leads'">
+
+
+            <table class="table table-bordered table-striped text-center margin-top-10" id="">
+              <thead>
+                <tr>
+                  <th scope="col">Days</th>
+                  <th scope="col">Leads</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+
+                  <td>{{selected}}-01</td>
+                  <td>15</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-02</td>
+                  <td>11</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-03</td>
+                  <td>16</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-04</td>
+                  <td>26</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-05</td>
+                  <td>33</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-06</td>
+                  <td>31</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-07</td>
+                  <td>38</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-08</td>
+                  <td>37</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-09</td>
+                  <td>41</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-10</td>
+                  <td>49</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-11</td>
+                  <td>46</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-12</td>
+                  <td>51</td>
+
+                </tr>
+                <tr>
+                  <td>{{selected}}-13</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-14</td>
+                  <td>55</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-15</td>
+                  <td>49</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-16</td>
+                  <td>56</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-17</td>
+                  <td>53</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-18</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-19</td>
+                  <td>59</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-20</td>
+                  <td>59</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-21</td>
+                  <td>52</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-22</td>
+                  <td>59</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-23</td>
+                  <td>45</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-24</td>
+                  <td>62</td>
+
+                </tr>
+                <tr>
+                  <td>{{selected}}-25</td>
+                  <td>58</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-26</td>
+                  <td>52</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-27</td>
+                  <td>45</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-28</td>
+                  <td>55</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-29</td>
+                  <td>33</td>
+                </tr>
+                <tr>
+                  <td>{{selected}}-30</td>
+                  <td>48</td>
+
+                </tr>
+
+
+
+              </tbody>
+            </table>
+          </div>
+
+          <div class="border" *ngIf="mainvalue==='Parallel Projects'">
+            <div class="col-sm-12 portlet-title">
+              <div class="caption">
+                &nbsp;{{mainvalue}}
+              </div>
+
+            </div>
+            <div [chart]="parallelprojects"></div>
+
+          </div>
+
+          <div class="" style="margin-top:20px;" *ngIf="mainvalue==='Parallel Projects'">
+
+
+            <table class="table table-hover table-striped table-bordered text-center margin-top-10" id="">
+              <thead>
+                <tr>
+                  <th scope="col">Quarters</th>
+                  <th scope="col">{{mainvalue}}</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+
+                  <td>1st Quarter</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td>2nd Quarter</td>
+                  <td>08</td>
+                </tr>
+                <tr>
+                  <td>3rd Quarter</td>
+                  <td>09</td>
+                </tr>
+                <tr>
+                  <td>4th Quarter</td>
+                  <td>19</td>
+                </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+
+
+          <div class="border" *ngIf="mainvalue==='Conversion Ratio'">
+            <div class="col-sm-12 portlet-title">
+              <div class="caption">
+                &nbsp;{{mainvalue}}
+              </div>
+
+            </div>
+            <div [chart]="conversionratiochart"></div>
+
+          </div>
+
+
+          <div class="border" *ngIf="mainvalue==='Social' ">
+            <div class="col-sm-12 portlet-title">
+              <div class="caption">
+                &nbsp;{{mainvalue}}
+              </div>
+
+            </div>
+            <div [chart]="socialchart"></div>
+
+          </div>
+
+          <div class="border" *ngIf="mainvalue==='Wins'">
+            <div class="col-sm-12 portlet-title">
+              <div class="caption">
+                &nbsp;{{mainvalue}}
+              </div>
+
+            </div>
+            <div [chart]="wins"></div>
+          </div>
+
+          <div class="" style="margin-top:20px;" *ngIf="mainvalue==='Wins'">
+
+
+            <table class="table table-hover table-striped table-bordered text-center margin-top-10" id="">
+              <thead>
+                <tr>
+                  <th scope="col">Months</th>
+                  <th scope="col">{{mainvalue}}</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+
+                  <td>January</td>
+                  <td>06</td>
+                </tr>
+                <tr>
+                  <td>February</td>
+                  <td>07</td>
+                </tr>
+                <tr>
+                  <td>March</td>
+                  <td>09</td>
+                </tr>
+                <tr>
+                  <td>April</td>
+                  <td>08</td>
+                </tr>
+                <tr>
+                  <td>May</td>
+                  <td>04</td>
+                </tr>
+                <tr>
+                  <td>June</td>
+                  <td>04</td>
+                </tr>
+                <tr>
+                  <td>July</td>
+                  <td>06</td>
+                </tr>
+                <tr>
+                  <td>August</td>
+                  <td>11</td>
+                </tr>
+                <tr>
+                  <td>September</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td>October</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td>November</td>
+                  <td>15</td>
+                </tr>
+                <tr>
+                  <td>December</td>
+                  <td>13</td>
+                </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+
+
+          <div class="border" *ngIf="mainvalue==='Losses'">
+            <div class="col-sm-12 portlet-title">
+              <div class="caption">
+                &nbsp;{{mainvalue}}
+              </div>
+
+            </div>
+            <div [chart]="losses"></div>
+          </div>
+
+          <div class="" style="margin-top:20px;" *ngIf="mainvalue==='Losses'">
+
+
+            <table class="table table-hover table-striped table-bordered text-center margin-top-10" id="">
+              <thead>
+                <tr>
+                  <th scope="col">Months</th>
+                  <th scope="col">{{mainvalue}}</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+
+                  <td>January</td>
+                  <td>03</td>
+                </tr>
+                <tr>
+                  <td>February</td>
+                  <td>04</td>
+                </tr>
+                <tr>
+                  <td>March</td>
+                  <td>04</td>
+                </tr>
+                <tr>
+                  <td>April</td>
+                  <td>01</td>
+                </tr>
+                <tr>
+                  <td>May</td>
+                  <td>02</td>
+                </tr>
+                <tr>
+                  <td>June</td>
+                  <td>03</td>
+                </tr>
+                <tr>
+                  <td>July</td>
+                  <td>01</td>
+                </tr>
+                <tr>
+                  <td>August</td>
+                  <td>04</td>
+                </tr>
+                <tr>
+                  <td>September</td>
+                  <td>01</td>
+                </tr>
+                <tr>
+                  <td>October</td>
+                  <td>01</td>
+                </tr>
+                <tr>
+                  <td>November</td>
+                  <td>02</td>
+                </tr>
+                <tr>
+                  <td>December</td>
+                  <td>03</td>
+                </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+
+
+          <div class="border" *ngIf="mainvalue==='Glassdoor Review' ||mainvalue==='Google Review'">
+            <div class="col-sm-12 portlet-title">
+              <div class="caption">
+                &nbsp;{{mainvalue}}
+              </div>
+            </div>
+
+            <div class="box-body">
+              <ul class="timeline">
+                <li>
+                  <i class="fa fa-comments bg-blue"></i>
+                  <div class="timeline-item">
+
+                    <a class="btn btn-success btn-flat btn-xs">
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span></a>
+                    <h3 class="timeline-header"><a style="color:#357ebd;" href="javascript:;">Venkata Radhakrishna
+                        Satyavarapu</a></h3>
+                    <div class="timeline-body">
+                      <p>I have been working with Option Matrix since 2005, We have an excellent team around here but
+                        this is a place for merit not for weak professionals. The company offers better salaries than
+                        MNCs for the 2-5 years experience bracket. Organization is in progressive mode and we welcome
+                        intelligent and experienced professionals.</p>
+                    </div>
+                    <div class="timeline-footer">
+                      <span class="time"><i class="fa fa-calendar"></i> Tue, 1 Nov</span>
+                    </div>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa fa-comments bg-blue"></i>
+                  <div class="timeline-item">
+
+                    <a class="btn btn-success btn-flat btn-xs"><span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span></a>
+                    <h3 class="timeline-header">
+                      <a style="color:#357ebd;" href="javascript:;">Neeraja A</a></h3>
+                    <div class="timeline-body">
+                      <p>I have been working with the organization for 5 years now. Every organization has its own
+                        culture
+                        and operations function. To start with, most amazing part of Option Matrix is it gives ample of
+                        opportunities to get certified or to enhance skills irrespective of your specification and
+                        experience. A great place to start your career and drive your progress with crystal clarity. It
+                        majorly believes in self-expression, leadership and fitness.</p>
+                    </div>
+                    <div class="timeline-footer">
+                      <span class="time"><i class="fa fa-calendar"></i> Tue, 29 Nov</span>
+                    </div>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa fa-comments bg-blue"></i>
+                  <div class="timeline-item">
+
+                    <a class="btn btn-success btn-flat btn-xs"> <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span></a>
+                    <h3 class="timeline-header"><a style="color: #357ebd;" href="javascript:;">Naveen Challa</a></h3>
+                    <div class="timeline-body">
+                      <p>Have been working with Option Matrix as Business Analyst from Past 5 months. Best place to work
+                        surrounded by fully energetic team. Promising career progress path.</p>
+                    </div>
+                    <div class="timeline-footer">
+                      <span class="time"><i class="fa fa-calendar"></i> Tue, 29 Nov</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <!-- /.table-responsive -->
+            </div>
+
+          </div>
+
+          <div class="border" *ngIf="mainvalue==='Mail'">
+            <div class="col-sm-12 portlet-title">
+              <div class="caption">
+                &nbsp;{{mainvalue}}
+              </div>
+
+            </div>
+
+
+
+            <div class="box-body">
+              <ul class="timeline">
+                <li>
+                  <i class="fa fa-envelope bg-blue"></i>
+                  <div class="timeline-item">
+
+                    <h3 class="timeline-header"><a style="color:#357ebd;" href="javascript:;">Venkata Radhakrishna
+                        Satyavarapu</a></h3>
+                    <div class="timeline-body">
+                      <p>I have been working with Option Matrix since 2005, We have an excellent team around here but
+                        this is a place for merit not for weak professionals. The company offers better salaries than
+                        MNCs for the 2-5 years experience bracket. Organization is in progressive mode and we welcome
+                        intelligent and experienced professionals.</p>
+                    </div>
+                    <div class="timeline-footer">
+                      <span class="time"><i class="fa fa-calendar"></i> Tue, 1 Nov</span>
+                    </div>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa fa-envelope bg-blue"></i>
+                  <div class="timeline-item">
+
+                    <h3 class="timeline-header">
+                      <a style="color:#357ebd;" href="javascript:;">Neeraja A</a></h3>
+                    <div class="timeline-body">
+                      <p>I have been working with the organization for 5 years now. Every organization has its own
+                        culture
+                        and operations function. To start with, most amazing part of Option Matrix is it gives ample of
+                        opportunities to get certified or to enhance skills irrespective of your specification and
+                        experience. A great place to start your career and drive your progress with crystal clarity. It
+                        majorly believes in self-expression, leadership and fitness.</p>
+                    </div>
+                    <div class="timeline-footer">
+                      <span class="time"><i class="fa fa-calendar"></i> Tue, 29 Nov</span>
+                    </div>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa fa-envelope bg-blue"></i>
+                  <div class="timeline-item">
+
+                    <h3 class="timeline-header"><a style="color: #357ebd;" href="javascript:;">Naveen Challa</a></h3>
+                    <div class="timeline-body">
+                      <p>Have been working with Option Matrix as Business Analyst from Past 5 months. Best place to work
+                        surrounded by fully energetic team. Promising career progress path.</p>
+                    </div>
+                    <div class="timeline-footer">
+                      <span class="time"><i class="fa fa-calendar"></i> Tue, 29 Nov</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <!-- /.table-responsive -->
+            </div>
+
+          </div>
+
+          <div class="border" *ngIf="mainvalue==='Voice'">
+            <div class="col-sm-12 portlet-title">
+              <div class="caption">
+                &nbsp;Prospects
+              </div>
+
+            </div>
+            <div [chart]="voice"></div>
+
+          </div>
+
+          <div class="" style="margin-top:20px;" *ngIf="mainvalue==='Prospects'|| mainvalue==='Voice'">
+
+
+            <table class="table table-bordered text-center table-striped" id="">
+              <thead>
+                <tr>
+                  <th scope="col">Months</th>
+                  <th scope="col">{{mainvalue}}</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+
+                  <td>January</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>February</td>
+                  <td>45</td>
+                </tr>
+                <tr>
+                  <td>March</td>
+                  <td>35</td>
+                </tr>
+                <tr>
+                  <td>April</td>
+                  <td>74</td>
+                </tr>
+                <tr>
+                  <td>May</td>
+                  <td>42</td>
+                </tr>
+                <tr>
+                  <td>June</td>
+                  <td>90</td>
+                </tr>
+                <tr>
+                  <td>July</td>
+                  <td>69</td>
+                </tr>
+                <tr>
+                  <td>August</td>
+                  <td>39</td>
+                </tr>
+                <tr>
+                  <td>September</td>
+                  <td>52</td>
+                </tr>
+                <tr>
+                  <td>October</td>
+                  <td>69</td>
+                </tr>
+                <tr>
+                  <td>November</td>
+                  <td>55</td>
+                </tr>
+                <tr>
+                  <td>December</td>
+                  <td>72</td>
+
+                </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+
+          <div class="" style="margin-top:20px;" *ngIf="mainvalue === 'Conversion Ratio' || mainvalue==='Social'">
+
+
+            <table class="table table-bordered text-center table-striped" id="">
+              <thead>
+                <tr>
+                  <th scope="col">Quarters</th>
+                  <th scope="col">{{mainvalue}} Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Quarter 01</td>
+                  <td>30%</td>
+                </tr>
+                <tr>
+                  <td>Quarter 02</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td>Quarter 03</td>
+                  <td>28%</td>
+                </tr>
+                <tr>
+                  <td>Quarter 04</td>
+                  <td>22%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div *ngIf="mainvalue==='Exceptions'" class="grey-cararra table-responsive">
+
+            <table class="table table-bordered table-striped text-center table-responsive" id="">
+              <thead>
+                <tr>
+                  <th scope="col">KRA</th>
+                  <th scope="col">KPI</th>
+                  <th scope="col">Execptions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="7" scope="row">Business Development</td>
+                  <td>Prospects</td>
+                  <td>9</td>
+                </tr>
+                <tr>
+                  <td>Active Leads</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Future Leads</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Parallel Projects</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>Conversion Ratio</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Wins</td>
+                  <td>9</td>
+                </tr>
+                <tr>
+                  <td>Loses</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td rowspan="2">Reputation</td>
+                  <td>Glassdoor Reviews</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>Google Reviews</td>
+                  <td>7</td>
+                </tr>
+                <tr>
+                  <td rowspan="3" scope="row">Coverage</td>
+                  <td>Mail</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Social</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Voice</td>
+                  <td>0</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- for Data Tab -->
+    <div *ngIf="activeItem['label']=='Data'">
+      <div *ngIf="mainvalue==='Prospects'" class="tab-pane margintop20">
+
+        <div class="">
+          <mat-card class="example-card greybackground">
+            <mat-card-header>
+              <mat-card-title>Prospects</mat-card-title>
+              <mat-card-subtitle>Prospects</mat-card-subtitle>
+            </mat-card-header>
+            <div class="form-group col-sm-4">
+              <label class="lblfnt">Data Type : &nbsp;</label>
+              <span class="spansize">Numeric</span>
+            </div>
+            <div class="form-group col-sm-4">
+              <label class="lblfnt">Scope : &nbsp;</label>
+              <span class="spansize">No</span>
+              <!-- <span *ngIf="kpiDetails.isScope == true"> ({{kpiDetails.scopeAlias}})</span> -->
+            </div>
+            <div class="form-group col-sm-4">
+                <label class="lblfnt">Frequency : &nbsp;</label>
+                <span class="spansize">Monthly</span>
+              </div>
+            <div class="form-group col-sm-4">
+              <label class="lblfnt">Priority Type : &nbsp;</label>
+              <span class="spansize"> Higher is better</span>
+            </div>
+            <div class="form-group col-sm-4">
+                <label class="lblfnt">Min Value : &nbsp;</label>
+                <span class="spansize"> 40</span>
+              </div>
+              <div class="form-group col-sm-4">
+                  <label class="lblfnt">Max Value : &nbsp;</label>
+                  <span class="spansize"> 100</span>
+                </div>
+            <mat-card-content>
+            </mat-card-content>
+            <!-- <mat-card-actions>
+                      <button mat-button>LIKE</button>
+                      <button mat-button>SHARE</button>
+                    </mat-card-actions> -->
+          </mat-card>
+        </div>
+
+        <div class="" style="margin-top:10px">
+          <mat-card class="example-card greybackground" style="padding-bottom:0px;">
+            <mat-grid-list cols="4" rowHeight="100px">
+              <mat-grid-tile [colspan]="1">
+                <div class="form-group">
+                  <label class="col-md-12 lblfnt required">Select Year</label>
+                  <div class="col-md-12">
+                    <mat-select class="form-control" placeholder="Select Year">
+                      <mat-option>2011</mat-option>
+                      <mat-option>2012</mat-option>
+                      <mat-option>2013</mat-option>
+                      <mat-option>2014</mat-option>
+                    </mat-select>
+                  </div>
+                </div>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1">
+                  <div class="form-group">
+                      <label class="col-md-12 lblfnt required">Select Month</label>
+                      <div class="col-md-12">
+                        <mat-select class="form-control" placeholder="Select Month">
+                            <mat-option>January</mat-option>
+                            <mat-option>Febraury</mat-option>
+                            <mat-option>March</mat-option>
+                            <mat-option>April</mat-option>
+                        </mat-select>
+                      </div>
+                    </div>      
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1">
+                  <div class="form-group">
+                      <label class="lblfnt col-md-12">Value</label>
+                      <div class="col-md-12">
+                          <input type="number" placeholder="Enter Value"
+                           class="margin-left form-control">
+                      </div>
+                    </div> 
+               
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" style="margin-top:4px;">
+                <button class="btn btn-success">Save</button>
+              </mat-grid-tile>
+            </mat-grid-list>
+            <mat-card-content>
+            </mat-card-content>
+            <!-- <mat-card-actions>
+                        <button mat-button>LIKE</button>
+                        <button mat-button>SHARE</button>
+                      </mat-card-actions> -->
+          </mat-card>
+          <div class="row">
+              <div class="flex-p col-sm-12">
+                  <div class="col-sm-7 headingdata">
+                 Consolidated Data
+                      </div>
+                <button mat-raised-button class="pull-right filter-hover margin-right-10" 
+                 style="color: white; background: #45b6af;" (click)="filterToggle = !filterToggle">
+                  <mat-icon>filter_list</mat-icon> Filter
+                </button>
+              </div>
+            </div>
+
+                <div *ngIf="filterToggle" class="flex-p col-sm-12 greybackground" style="margin-bottom:10px; border-radius: 4px !important;">
+                  <div class="col-sm-4 pull-right">
+                      <mat-select class="form-control" placeholder="Select Year">
+                          <mat-option>2011</mat-option>
+                          <mat-option>2012</mat-option>
+                          <mat-option>2013</mat-option>
+                          <mat-option>2014</mat-option>
+                        </mat-select>
+                  </div>
+              </div>
+          <table class="table table-bordered table-striped text-center table-responsive" id="">
+              <thead>
+                <tr>
+                  <th scope="col">Month/Week</th>
+                  <th scope="col">Value</th>
+                  <th scope="col">Target</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>August</td>
+                  <td>85</td>
+                  <td>90</td>
+                </tr>
+                <tr>
+                  <td>September</td>
+                  <td>80</td>
+                  <td>75</td>
+                </tr>
+                <tr>
+                  <td>June</td>
+                  <td>85</td>
+                  <td>85</td>
+                </tr>
+                <tr>
+                  <td>July</td>
+                  <td>95</td>
+                  <td>100</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+
+      <div *ngIf="mainvalue==='Active Leads'" class="tab-pane margintop20">
+
+          <div class="">
+            <mat-card class="example-card greybackground">
+              <mat-card-header>
+                <mat-card-title>Active Leads</mat-card-title>
+                <mat-card-subtitle>Active Leads</mat-card-subtitle>
+              </mat-card-header>
+              <div class="form-group col-sm-4">
+                <label class="lblfnt">Data Type : &nbsp;</label>
+                <span class="spansize">Text Numeric</span>
+              </div>
+              <div class="form-group col-sm-4">
+                <label class="lblfnt">Scope : &nbsp;</label>
+                <span class="spansize">No</span>
+                <!-- <span *ngIf="kpiDetails.isScope == true"> ({{kpiDetails.scopeAlias}})</span> -->
+              </div>
+              <div class="form-group col-sm-4">
+                  <label class="lblfnt">Frequency : &nbsp;</label>
+                  <span class="spansize">Monthly</span>
+                </div>
+              <div class="form-group col-sm-4">
+                <label class="lblfnt">Priority Type : &nbsp;</label>
+                <span class="spansize"> Higher is better</span>
+              </div>
+              <div class="form-group col-sm-4">
+                  <label class="lblfnt">Min Value : &nbsp;</label>
+                  <span class="spansize"> 40</span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label class="lblfnt">Max Value : &nbsp;</label>
+                    <span class="spansize"> 100</span>
+                  </div>
+              <mat-card-content>
+              </mat-card-content>
+              <!-- <mat-card-actions>
+                        <button mat-button>LIKE</button>
+                        <button mat-button>SHARE</button>
+                      </mat-card-actions> -->
+            </mat-card>
+          </div>
+  
+          <div class="" style="margin-top:10px">
+            <mat-card class="example-card greybackground" style="padding-bottom:0px;">
+              <mat-grid-list cols="5" rowHeight="100px">
+                <mat-grid-tile [colspan]="1">
+                  <div class="form-group">
+                    <label class="col-md-12 lblfnt required">Select Year</label>
+                    <div class="col-md-12">
+                      <mat-select class="form-control" placeholder="Select Year">
+                        <mat-option>2011</mat-option>
+                        <mat-option>2012</mat-option>
+                        <mat-option>2013</mat-option>
+                        <mat-option>2014</mat-option>
+                      </mat-select>
+                    </div>
+                  </div>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1">
+                    <div class="form-group">
+                        <label class="col-md-12 lblfnt required">Select Month</label>
+                        <div class="col-md-12">
+                          <mat-select class="form-control" placeholder="Select Month">
+                              <mat-option>January</mat-option>
+                              <mat-option>Febraury</mat-option>
+                              <mat-option>March</mat-option>
+                              <mat-option>April</mat-option>
+                          </mat-select>
+                        </div>
+                      </div>      
+                </mat-grid-tile>
+      
+                <mat-grid-tile [colspan]="1">
+                    <div class="form-group">
+                        <label class="lblfnt col-md-12">Value</label>
+                        <div class="col-md-12">
+                            <input type="number" placeholder="Enter Value"
+                             class="margin-left form-control">
+                        </div>
+                      </div> 
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1">
+                    <div class="form-group">
+                        <label class="lblfnt col-md-12">Text</label>
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Enter Text"
+                             class="margin-left form-control">
+                        </div>
+                      </div> 
+                </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" style="margin-top:4px;">
+                  <button class="btn btn-success">Save</button>
+                </mat-grid-tile> 
+              </mat-grid-list> 
+        
+              <mat-card-content>
+              </mat-card-content>
+            </mat-card>
+            <div class="row">
+                <div class="flex-p col-sm-12">
+                    <div class="col-sm-7 headingdata">
+                   Consolidated Data
+                        </div>
+                  <button mat-raised-button class="pull-right filter-hover margin-right-10" 
+                   style="color: white; background: #45b6af;" (click)="filterToggle = !filterToggle">
+                    <mat-icon>filter_list</mat-icon> Filter
+                  </button>
+                </div>
+              </div>
+  
+                  <div *ngIf="filterToggle" class="flex-p col-sm-12 greybackground" style="margin-bottom:10px; border-radius: 4px !important;">
+                    <div class="col-sm-4 pull-right">
+                        <mat-select class="form-control" placeholder="Select Year">
+                            <mat-option>2011</mat-option>
+                            <mat-option>2012</mat-option>
+                            <mat-option>2013</mat-option>
+                            <mat-option>2014</mat-option>
+                          </mat-select>
+                    </div>
+                </div>
+            <table class="table table-bordered table-striped text-center table-responsive" id="">
+                <thead>
+                  <tr>
+                      <th>Month/Week</th>
+                      <th>Text</th>
+                      <th>Value</th>
+                      <th>Target</th>
+                  </tr>
+
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>August</td>
+                    <td>Client Meeting Pulse</td>
+                    <td>90</td>
+                    <td>90</td>
+                  </tr> 
+                  <tr>
+                      <td>June</td>
+                      <td>Client Meeting Pulse</td>
+                      <td>90</td>
+                      <td>90</td>
+                    </tr> 
+                    <tr>
+                        <td>July</td>
+                        <td>Client Meeting Pulse</td>
+                        <td>90</td>
+                        <td>90</td>
+                      </tr> 
+                      <tr>
+                          <td>March</td>
+                          <td>Client Meeting Pulse</td>
+                          <td>90</td>
+                          <td>90</td>
+                        </tr> 
+                        <tr>
+                            <td>April</td>
+                            <td>Client Meeting Pulse</td>
+                            <td>90</td>
+                            <td>90</td>
+                          </tr> 
+    
+                </tbody>
+              </table>
+          </div>
+        </div>
+
+        <div *ngIf="mainvalue==='Future Leads'" class="tab-pane margintop20">
+
+            <div class="">
+              <mat-card class="example-card greybackground">
+                <mat-card-header>
+                  <mat-card-title>Future Leads</mat-card-title>
+                  <mat-card-subtitle>Future Leads</mat-card-subtitle>
+                </mat-card-header>
+                <div class="form-group col-sm-4">
+                  <label class="lblfnt">Data Type : &nbsp;</label>
+                  <span class="spansize">Numeric</span>
+                </div>
+                <div class="form-group col-sm-4">
+                  <label class="lblfnt">Scope : &nbsp;</label>
+                  <span class="spansize">Yes (Staff details)</span>
+                  <!-- <span *ngIf="kpiDetails.isScope == true"> ({{kpiDetails.scopeAlias}})</span> -->
+                </div>
+                <div class="form-group col-sm-4">
+                    <label class="lblfnt">Frequency : &nbsp;</label>
+                    <span class="spansize">Monthly</span>
+                  </div>
+                <div class="form-group col-sm-4">
+                  <label class="lblfnt">Priority Type : &nbsp;</label>
+                  <span class="spansize"> Higher is better</span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label class="lblfnt">Min Value : &nbsp;</label>
+                    <span class="spansize"> 40</span>
+                  </div>
+                  <div class="form-group col-sm-4">
+                      <label class="lblfnt">Max Value : &nbsp;</label>
+                      <span class="spansize"> 100</span>
+                    </div>
+                <mat-card-content>
+                </mat-card-content>
+                <!-- <mat-card-actions>
+                          <button mat-button>LIKE</button>
+                          <button mat-button>SHARE</button>
+                        </mat-card-actions> -->
+              </mat-card>
+            </div>
+    
+            <div class="" style="margin-top:10px">
+              <mat-card class="example-card greybackground" style="padding-bottom:0px;">
+                <mat-grid-list cols="5" rowHeight="100px">
+                  <mat-grid-tile [colspan]="1">
+                    <div class="form-group">
+                      <label class="col-md-12 lblfnt required">Select Year</label>
+                      <div class="col-md-12">
+                        <mat-select class="form-control" placeholder="Select Year">
+                          <mat-option>2011</mat-option>
+                          <mat-option>2012</mat-option>
+                          <mat-option>2013</mat-option>
+                          <mat-option>2014</mat-option>
+                        </mat-select>
+                      </div>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile [colspan]="1">
+                      <div class="form-group">
+                          <label class="col-md-12 lblfnt required">Select Month</label>
+                          <div class="col-md-12">
+                            <mat-select class="form-control" placeholder="Select Month">
+                                <mat-option>January</mat-option>
+                                <mat-option>Febraury</mat-option>
+                                <mat-option>March</mat-option>
+                                <mat-option>April</mat-option>
+                            </mat-select>
+                          </div>
+                        </div>      
+                  </mat-grid-tile>
+                  <mat-grid-tile [colspan]="2" style="margin-top: 4px;">
+                      <a class="btn btn-success marginbtn" title="Click to Download Scope Template">
+                          <i class="fa fa-download"></i>&nbsp;&nbsp;Download Template
+                        </a>
+
+
+                      <a class="btn btn-primary marginbtn" title="Click to Upload Scope Document">
+                          <i class="fa fa-upload"></i>&nbsp;&nbsp;Upload
+                        </a>
+                   
+                  </mat-grid-tile>
+                  <mat-grid-tile [colspan]="1" style="margin-top: 4px;">
+                    <button class="btn btn-success">Save</button>
+                  </mat-grid-tile>
+                </mat-grid-list>
+                <mat-card-content>
+                </mat-card-content>
+                <!-- <mat-card-actions>
+                            <button mat-button>LIKE</button>
+                            <button mat-button>SHARE</button>
+                          </mat-card-actions> -->
+              </mat-card>
+              <div class="row">
+                  <div class="flex-p col-sm-12">
+                      <div class="col-sm-7 headingdata">
+                     Consolidated Data
+                          </div>
+                    <button mat-raised-button class="pull-right filter-hover margin-right-10" 
+                     style="color: white; background: #45b6af;" (click)="filterToggle = !filterToggle">
+                      <mat-icon>filter_list</mat-icon> Filter
+                    </button>
+                  </div>
+                </div>
+    
+                    <div *ngIf="filterToggle" class="flex-p col-sm-12 greybackground" style="margin-bottom:10px; border-radius: 4px !important;">
+                        <div class="col-sm-4 pull-right">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                      <div class="col-sm-4 pull-right">
+                          <mat-select class="form-control" placeholder="Select Year">
+                              <mat-option>2011</mat-option>
+                              <mat-option>2012</mat-option>
+                              <mat-option>2013</mat-option>
+                              <mat-option>2014</mat-option>
+                            </mat-select>
+                      </div>
+                  </div>
+              <table class="table table-bordered table-striped text-center table-responsive" id="">
+                  <thead>
+                    <tr>
+                      <th scope="col">Month/Week</th>
+                      <th scope="col">Scope</th>
+                      <th scope="col">Code</th>
+                      <th scope="col">Value</th>
+                      <th scope="col">Target</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>August</td>
+                      <td>Kishore Ch</td>
+                      <td>KC</td>
+                      <td>85</td>
+                      <td>90</td>
+                    </tr>
+                    <tr>
+                      <td>September</td>
+                      <td>Manikanta</td>
+                      <td>MK</td>
+                      <td>80</td>
+                      <td>75</td>
+                    </tr>
+                    <tr>
+                      <td>June</td>
+                      <td>Sreebharath</td>
+                      <td>SB</td>
+                      <td>85</td>
+                      <td>85</td>
+                    </tr>
+                    <tr>
+                      <td>July</td>
+                      <td>Avinash Karanam</td>
+                      <td>AK</td>
+                      <td>95</td>
+                      <td>100</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+
+          <div *ngIf="mainvalue==='Parallel Projects'" class="tab-pane margintop20">
+
+              <div class="">
+                <mat-card class="example-card greybackground">
+                  <mat-card-header>
+                    <mat-card-title>Parallel Projects</mat-card-title>
+                    <mat-card-subtitle>Parallel Projects</mat-card-subtitle>
+                  </mat-card-header>
+                  <div class="form-group col-sm-4">
+                    <label class="lblfnt">Data Type : &nbsp;</label>
+                    <span class="spansize">Text Numeric</span>
+                  </div>
+                  <div class="form-group col-sm-4">
+                    <label class="lblfnt">Scope : &nbsp;</label>
+                    <span class="spansize">Yes (Staff details)</span>
+                    <!-- <span *ngIf="kpiDetails.isScope == true"> ({{kpiDetails.scopeAlias}})</span> -->
+                  </div>
+                  <div class="form-group col-sm-4">
+                      <label class="lblfnt">Frequency : &nbsp;</label>
+                      <span class="spansize">Monthly</span>
+                    </div>
+                  <div class="form-group col-sm-4">
+                    <label class="lblfnt">Priority Type : &nbsp;</label>
+                    <span class="spansize"> Higher is better</span>
+                  </div>
+                  <div class="form-group col-sm-4">
+                      <label class="lblfnt">Min Value : &nbsp;</label>
+                      <span class="spansize"> 40</span>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label class="lblfnt">Max Value : &nbsp;</label>
+                        <span class="spansize"> 100</span>
+                      </div>
+                  <mat-card-content>
+                  </mat-card-content>
+                  <!-- <mat-card-actions>
+                            <button mat-button>LIKE</button>
+                            <button mat-button>SHARE</button>
+                          </mat-card-actions> -->
+                </mat-card>
+              </div>
+      
+              <div class="" style="margin-top:10px">
+                <mat-card class="example-card greybackground" style="padding-bottom:0px;">
+                  <mat-grid-list cols="5" rowHeight="100px">
+                    <mat-grid-tile [colspan]="1">
+                      <div class="form-group">
+                        <label class="col-md-12 lblfnt required">Select Year</label>
+                        <div class="col-md-12">
+                          <mat-select class="form-control" placeholder="Select Year">
+                            <mat-option>2011</mat-option>
+                            <mat-option>2012</mat-option>
+                            <mat-option>2013</mat-option>
+                            <mat-option>2014</mat-option>
+                          </mat-select>
+                        </div>
+                      </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="1">
+                        <div class="form-group">
+                            <label class="col-md-12 lblfnt required">Select Month</label>
+                            <div class="col-md-12">
+                              <mat-select class="form-control" placeholder="Select Month">
+                                  <mat-option>January</mat-option>
+                                  <mat-option>Febraury</mat-option>
+                                  <mat-option>March</mat-option>
+                                  <mat-option>April</mat-option>
+                              </mat-select>
+                            </div>
+                          </div>      
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="2" style="margin-top: 4px;">
+                        <a class="btn btn-success marginbtn" id="Quality_download" title="Click to Download Template">
+                            <i class="fa fa-download"></i>&nbsp;&nbsp;Download Template
+                          </a>
+  
+  
+                        <a class="btn btn-primary marginbtn" id="Quality_Upload" title="Click to Upload Document">
+                            <i class="fa fa-upload"></i>&nbsp;&nbsp;Upload
+                          </a>
+                     
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="1" style="margin-top: 4px;">
+                      <button class="btn btn-success">Save</button>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <mat-card-content>
+                  </mat-card-content>
+                  <!-- <mat-card-actions>
+                              <button mat-button>LIKE</button>
+                              <button mat-button>SHARE</button>
+                            </mat-card-actions> -->
+                </mat-card>
+                <div class="row">
+                    <div class="flex-p col-sm-12">
+                        <div class="col-sm-7 headingdata">
+                       Consolidated Data
+                            </div>
+                      <button mat-raised-button class="pull-right filter-hover margin-right-10" 
+                       style="color: white; background: #45b6af;" (click)="filterToggle = !filterToggle">
+                        <mat-icon>filter_list</mat-icon> Filter
+                      </button>
+                    </div>
+                  </div>
+      
+                      <div *ngIf="filterToggle" class="flex-p col-sm-12 greybackground" style="margin-bottom:10px; border-radius: 4px !important;">
+                          <div class="col-sm-4 pull-right">
+                              <input type="text" class="form-control" placeholder="Search">
+                          </div>
+                        <div class="col-sm-4 pull-right">
+                            <mat-select class="form-control" placeholder="Select Year">
+                                <mat-option>2011</mat-option>
+                                <mat-option>2012</mat-option>
+                                <mat-option>2013</mat-option>
+                                <mat-option>2014</mat-option>
+                              </mat-select>
+                        </div>
+                    </div>
+                <table class="table table-bordered table-striped text-center table-responsive" id="">
+                    <thead>
+                      <tr>
+                        <th scope="col">Month/Week</th>
+                        <th scope="col">Scope</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Text</th>
+                        <th scope="col">Value</th>
+                        <th scope="col">Target</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>August</td>
+                        <td>Kishore Ch</td>
+                        <td>KC</td>
+                        <td>Achieved Maximum Target</td>
+                        <td>85</td>
+                        <td>90</td>
+                      </tr>
+                      <tr>
+                        <td>September</td>
+                        <td>Manikanta</td>
+                        <td>MK</td>
+                        <td>Achieved More Than Target</td>
+                        <td>80</td>
+                        <td>75</td>
+                      </tr>
+                      <tr>
+                        <td>June</td>
+                        <td>Sreebharath</td>
+                        <td>SB</td>
+                        <td>Achieved Target</td>
+                        <td>85</td>
+                        <td>85</td>
+                      </tr>
+                      <tr>
+                        <td>July</td>
+                        <td>Avinash Karanam</td>
+                        <td>AK</td>
+                        <td>Achieved Maximum Target</td>
+                        <td>95</td>
+                        <td>100</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+            </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,177 @@
+<div class="col-sm-12 no-padding" style="margin-bottom:10px;margin-right: 0px;">
+  <a class="btn btn-primary pull-right" (click)="addCandidateModalToggle(template,1)" title="Click to Add New Candidate">
+      <i class="fa fa-plus"></i>&nbsp;Add Candidate
+  </a>
+</div>
+<div class="row">
+  <div class="col-md-6 col-sm-12 pull-right" style="margin-right:15px">
+      <div id="Quality_table1_filter" class="dataTables_filter pull-right"><label style="display:inline-block; font-weight: 400">Search:&nbsp;</label>
+          <input type="search" class="form-control input-small input-inline" placeholder="" aria-controls="Quality_table1"></div>
+  </div>
+</div>
+<table class="table table-hover table-bordered table-scrollable-borderless table-striped margin-top" id="table1" style="margin-right:20px;">
+  <thead>
+      <tr>
+          <th>
+              Name
+          </th>
+          <th>
+              Email ID
+          </th>
+          <th>
+              Phone Number
+          </th>
+          <th>
+              City
+          </th>
+          <th>
+              Status
+          </th>
+          <th class="text-center">
+              Actions
+          </th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let data of users'>
+      <td>{{data.name}}</td>
+      <td>{{data.email}}</td>
+      <td>{{data.phone}}</td>
+      <td>{{data.city}}</td>
+      <td>{{data.status}}</td>
+      <td><a title="Click to Update details">
+          <i (click)="addCandidateModalToggle(1)" class="fa fa-pencil-square"></i>
+      </a>&nbsp;
+      <a title="Click to Delete">
+          <i (click)="deleteModalToggle(1)" class="fa fa-trash" style="color:red"></i>
+      </a></td>
+    <!-- <td colspan=6>No Candidates</td> -->
+  </tr>
+</tbody>
+  </table>
+
+  <!-- <div class="modal fade" bsModal #addCandidateModal role="dialog">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title">
+                      <b>Add Candidate Details</b> <i (click)="addCandidateModalToggle(2)" class="fa fa-times pull-right" style="font-size:17px;"></i>
+                  </h4>
+              </div>
+              <div class="modal-body col-md-12">
+                  <form (ngSubmit)="onSubmit()" class="form-horizontal">
+                      <div class="form-group">
+                          <label class="col-md-3 control-label">Name&nbsp;:</label>
+                          <div class="col-md-8">
+                              <div class="input-icon right">
+                                  <i class="fa fa-user"></i>
+                                  <input type="text" class="form-control" autocomplete="off" placeholder="Enter Name">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-md-3 control-label">Email&nbsp;:</label>
+                          <div class="col-md-8">
+                              <div class="input-icon right">
+                                  <i class="fa fa-user"></i>
+                                  <input type="email" class="form-control" autocomplete="off" placeholder="Enter Email">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-md-3 control-label">Phone&nbsp;:</label>
+                          <div class="col-md-8">
+                              <div class="input-icon right">
+                                  <i class="fa fa-calendar"></i>
+                                  <input type="number" class="form-control" placeholder="Enter Phone">
+                              </div>
+  
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-md-3 control-label">City&nbsp;:</label>
+                          <div class="col-md-8">
+                              <div class="input-icon right">
+                                  <i class="fa fa-envelope"></i>
+                                  <input type="text" class="form-control" autocomplete="off" placeholder="Enter City">
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+  
+  
+              </div>
+              <div class="modal-footer">
+                  <button type="submit" class="btn btn-success">Submit</button>
+                  <button type="button" class="btn btn-default" (click)="addCandidateModalToggle(2)">Close</button>
+              </div>
+          </div>
+      </div>
+  
+  </div> -->
+
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Add Candidate</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true" style="color:white">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form (ngSubmit)="onSubmit()" [formGroup]="addCandidateForm" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-3 control-label">Name&nbsp;:</label>
+                <div class="col-md-8">
+                    <div class="input-icon right">
+                        <i class="fa fa-user"></i>
+                        <input matInput type="text" [maxlength]=50 minlength=1 formControlName="candname" id="idcandndame" class="form-control" autocomplete="off" placeholder="Enter Name">
+                    </div>
+                    <div *ngIf="!candname.valid && (candname.dirty || candname.touched)" class="error-text">
+                        <div *ngIf="candname.errors.required">
+                                <span style="color:red">Name is required</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Email&nbsp;:</label>
+                <div class="col-md-8">
+                    <div class="input-icon right">
+                        <i class="fa fa-envelope"></i>
+                        <input type="email" class="form-control" autocomplete="off" formControlName="candemail" placeholder="Enter Email">
+                    </div>
+                    <div *ngIf="!candemail.valid && (candemail.dirty || candemail.touched)" class="error-text">
+                        <div *ngIf="candemail.errors.required">
+                                <span style="color:red">Email is required</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Phone&nbsp;:</label>
+                <div class="col-md-8">
+                    <div class="input-icon right">
+                        <i class="fa fa-phone"></i>
+                        <input type="number" class="form-control" placeholder="Enter Phone">
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">City&nbsp;:</label>
+                <div class="col-md-8">
+                    <div class="input-icon right">
+                        <i class="fa fa-home"></i>
+                        <input type="text" class="form-control" autocomplete="off" placeholder="Enter City">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="button" class="btn btn-default"  (click)="modalRef.hide()">Close</button>
+    </div>
+  </ng-template>

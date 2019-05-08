@@ -1,0 +1,306 @@
+<div class="">
+  <div class="col-sm-4">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-cogs"></i>&nbsp; Organization Structure
+      </div>
+    </div>
+    <p-tree [value]="files" selectionMode="single" [(selection)]="selectedFile" (onNodeSelect)="nodeSelect($event)">
+    </p-tree>
+  </div>  
+
+  <div class="col-sm-8">
+    <div *ngIf="mainvalue=='Option M' && addtoggle==null || mainvalue==null && addtoggle==null "
+      class="col-sm-12 clearfix gridrole"
+      style="border: 1px solid rgb(204, 204, 204); padding: 20px; border-radius: 3px;">
+      <h4 class="modal-title"><span style="padding-left: 13px;" class="bold">Organization Details</span>
+        <a (click)='adddiv(1)' class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Add Division </a></h4>
+      <br>
+      <input data-val="true" data-val-number="The field intfirmtype must be a number." id="FirmDivisionid"
+        name="intfirmtype" type="hidden" value="36">
+      <input type="hidden" id="FirmDivisionid">
+      <div class="col-xs-12">
+        <label class="add-member-label add-member-input lblfnt">Organization Name</label>
+        <input class="form-control add-member-input fldbrder name FirstLetterCapital" value="Option M" maxlength="15"
+          name="Name" type="text">
+        <br>
+        <label class=" lblfnt">Description</label>
+        <textarea class="form-control" cols="20" id="updatevcDesc" maxlength="250" name="firmDivisionDesc"
+          placeholder="Description"
+          rows="5">Option Matrix is a technology consulting firm ensuring cost effective project services for Transportation, Hospitality, Construction, Mining, Manufacturing, Healthcare & Financial Services. Our goal in every project is technology driven business transformation.</textarea>
+        <br>
+        <div class="pull-right" style="margin-top: 25px;">
+          <button class="btn btn-success" id="btnupdateFimrDiv" type="submit">Update</button>
+          <button type="button" id="btn_firmdiv" class="btn btn-danger hide" data-toggle="modal"
+            data-target="#Mymodel-FirmDivDelete" data-tooltip="tooltip" data-placement="top" title="" value=""
+            data-original-title="Delete">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="" *ngIf="mainvalue=='Option M' && addtoggle==1">
+      <div class="col-sm-12 clearfix gridrole"
+        style="border: 1px solid rgb(204, 204, 204); padding: 20px; border-radius: 3px;">
+        <h4 class="modal-title"><span style="padding-left: 13px;" class="bold">Add Division</span></h4>
+        <br>
+        <input data-val="true" data-val-number="The field intfirmtype must be a number." id="FirmDivisionid"
+          name="intfirmtype" type="hidden" value="36">
+        <div class="col-xs-12">
+          <label class="add-member-label add-member-input lblfnt">Division Name</label>
+          <input class="form-control add-member-input fldbrder name FirstLetterCapital" maxlength="15" type="text"
+            placeholder="Enter Division Name">
+          <br>
+          <label class=" lblfnt">Contact Number</label>
+          <input class="form-control add-member-input fldbrder name FirstLetterCapital" maxlength="15" type="number"
+            placeholder="Enter Contact Number">
+          <br>
+          <label class=" lblfnt">Address</label>
+          <textarea class="form-control" cols="15" id="updatevcDesc" maxlength="250" name="firmDivisionDesc"
+            placeholder="Address" rows="5"></textarea>
+          <div class="pull-right" style="margin-top: 25px;">
+            <button class="btn btn-success" id="btnupdateFimrDiv" type="submit">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="mainvalue=='Project' && addtoggle==null || mainvalue=='Product' && addtoggle==null"
+      class="col-sm-12 clearfix gridrole"
+      style="border: 1px solid rgb(204, 204, 204); padding: 20px; border-radius: 3px;">
+      <h4 class="modal-title"><span style="padding-left: 13px;" class="bold">Edit Division Details</span>
+        <a (click)='adddiv(2)' class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Add Location </a></h4>
+      <br>
+      <input data-val="true" data-val-number="The field intfirmtype must be a number." id="FirmDivisionid"
+        name="intfirmtype" type="hidden" value="36">
+      <input type="hidden" id="FirmDivisionid">
+      <div class="col-xs-12">
+        <label class="add-member-label add-member-input lblfnt">Division Name</label>
+        <input class="form-control add-member-input fldbrder name FirstLetterCapital" value="{{mainvalue}}"
+          maxlength="15" name="Name" type="text" placeholder="Enter Division Name">
+        <br>
+        <label class="add-member-label add-member-input lblfnt">Contact Number</label>
+        <input class="form-control add-member-input fldbrder name FirstLetterCapital" value="999999999" maxlength="15"
+          name="Name" type="number" placeholder="Enter Contact Number">
+        <br>
+        <label class=" lblfnt">Address</label>
+        <textarea class="form-control" cols="20" id="updatevcDesc" maxlength="250" name="firmDivisionDesc"
+          placeholder="Address" rows="5">
+Uptown Cyberabad Building, B block, 4th floor, 100 Feet Road,Ayyappa society, Madhapur,Hyderabad, Telangana 500081
+            </textarea>
+        <div class="pull-right" style="margin-top: 25px;">
+          <button class="btn btn-success marginbtn" id="btnupdateFimrDiv" type="submit">Update</button>
+          <button type="button" id="btn_firmdiv" class="btn btn-danger marginbtn" data-toggle="modal"
+            data-target="#Mymodel-FirmDivDelete" data-tooltip="tooltip" data-placement="top" title="" value=""
+            data-original-title="Delete">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="" *ngIf="mainvalue=='Project' && addtoggle==2">
+      <div class="col-sm-12 clearfix gridrole"
+        style="border: 1px solid rgb(204, 204, 204); padding: 20px; border-radius: 3px;">
+        <h4 class="modal-title"><span style="padding-left: 13px;" class="bold">Add Location</span></h4>
+        <br>
+        <input data-val="true" data-val-number="The field intfirmtype must be a number." id="FirmDivisionid"
+          name="intfirmtype" type="hidden" value="36">
+        <div class="col-xs-12">
+          <label class="add-member-label add-member-input lblfnt">Country </label>
+          <mat-select placeholder='Select Country' class="form-control">
+            <mat-option value='India'>India</mat-option>
+            <mat-option value='USA'>USA</mat-option>
+            <mat-option value='UK'>UK</mat-option>
+            <mat-option value='Russia'>Russia</mat-option>
+            <mat-option value='China'>China</mat-option>
+            <mat-option value='Australia'>Australia</mat-option>
+            <mat-option value='Netherlands'>Netherlands</mat-option>
+            <mat-option value='France'>France</mat-option>
+            <mat-option value='Germany'>Germany</mat-option>
+          </mat-select>
+          <br>
+          <br>
+          <label class=" lblfnt">Description</label>
+          <textarea class="form-control" cols="20" id="updatevcDesc" maxlength="250" name="firmDivisionDesc"
+            placeholder="Address" rows="5"></textarea>
+          <div class="pull-right" style="margin-top: 25px;">
+            <button class="btn btn-success" id="btnupdateFimrDiv" type="submit">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      *ngIf="mainvalue=='India' && addtoggle==null ||mainvalue=='Australia' && addtoggle==null ||mainvalue=='Canada' && addtoggle==null"
+      class="col-sm-12 clearfix gridrole"
+      style="border: 1px solid rgb(204, 204, 204); padding: 20px; border-radius: 3px;">
+      <h4 class="modal-title"><span style="padding-left: 13px;" class="bold">Edit Location Details</span>
+        <a (click)='adddiv(3)' class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Add Entity </a></h4>
+      <br>
+      <input data-val="true" data-val-number="The field intfirmtype must be a number." id="FirmDivisionid"
+        name="intfirmtype" type="hidden" value="36">
+      <input type="hidden" id="FirmDivisionid">
+      <div class="col-xs-12">
+        <label class="add-member-label add-member-input lblfnt">Country</label>
+        <mat-select [value]="selectedOption" class="form-control">
+          <mat-option value='India'>India</mat-option>
+          <mat-option value='USA'>USA</mat-option>
+          <mat-option value='UK'>UK</mat-option>
+          <mat-option value='Russia'>Russia</mat-option>
+          <mat-option value='China'>China</mat-option>
+          <mat-option value='Australia'>Australia</mat-option>
+          <mat-option value='Netherlands'>Netherlands</mat-option>
+          <mat-option value='France'>France</mat-option>
+          <mat-option value='Germany'>Germany</mat-option>
+        </mat-select>
+        <br>
+        <br>
+        <label class=" lblfnt">Description</label>
+        <textarea class="form-control" cols="20" id="updatevcDesc" maxlength="250" name="firmDivisionDesc"
+          placeholder="Address" rows="5">
+Description
+          </textarea>
+        <div class="pull-right" style="margin-top: 25px;">
+          <button class="btn btn-success marginbtn" id="btnupdateFimrDiv" type="submit">Update</button>
+          <button type="button" id="btn_firmdiv" class="btn btn-danger marginbtn" data-toggle="modal"
+            data-target="#Mymodel-FirmDivDelete" data-tooltip="tooltip" data-placement="top" title="" value=""
+            data-original-title="Delete">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div
+      *ngIf="mainvalue=='India' && addtoggle==3 ||mainvalue=='Australia' && addtoggle==3 ||mainvalue=='Canada' && addtoggle==3">
+      <div class="col-sm-12 clearfix gridrole"
+        style="border: 1px solid rgb(204, 204, 204); padding: 20px; border-radius: 3px;">
+        <h4 class="modal-title"><span style="padding-left: 13px;" class="bold">Add Entity</span></h4>
+        <br>
+        <input data-val="true" data-val-number="The field intfirmtype must be a number." id="FirmDivisionid"
+          name="intfirmtype" type="hidden" value="36">
+        <div class="col-xs-12">
+          <label class="add-member-label add-member-input lblfnt">Entity Name</label>
+          <input class="form-control add-member-input fldbrder name FirstLetterCapital" maxlength="15" type="text"
+            placeholder="Enter Entity Name">
+          <br>
+          <label class="add-member-label add-member-input lblfnt">Entity Code</label>
+          <input onkeyup="this.value = this.value.toUpperCase()" class="form-control add-member-input fldbrder name FirstLetterCapital"
+            maxlength="6" type="text" placeholder="Enter Entity Code">
+          <br>
+          <label class="lblfnt">Contact Number</label>
+          <input class="form-control add-member-input fldbrder name FirstLetterCapital" maxlength="15" type="number"
+            placeholder="Enter Contact Number">
+            <br>
+            <label class="add-member-label add-member-input lblfnt">State</label>
+            <mat-select class="form-control" placeholder="Select State">
+              <mat-option value='Hyderabad'>Telangana</mat-option>
+              <mat-option value='Chennai'>Tamilnadu</mat-option>
+              <mat-option value='Bangalore'>Karnataka</mat-option>
+              <mat-option value='Delhi'>Delhi</mat-option>
+              <mat-option value='Pune'>Maharashtra</mat-option>
+              <mat-option value='Kolkata'>West Bengal</mat-option>
+              <mat-option value='Ahmedabad'>Gujarat</mat-option>
+              <mat-option value='Kerala'>Kerala</mat-option>
+            </mat-select>
+            <br>
+            <br>
+            <label class="add-member-label add-member-input lblfnt">City</label>
+       <mat-select class="form-control" placeholder="Select City">
+              <mat-option value='Hyderabad'>Hyderabad</mat-option>
+              <mat-option value='Chennai'>Chennai</mat-option>
+              <mat-option value='Bangalore'>Bangalore</mat-option>
+              <mat-option value='Delhi'>Delhi</mat-option>
+              <mat-option value='Pune'>Pune</mat-option>
+              <mat-option value='Mumbai'>Mumbai</mat-option>
+              <mat-option value='Kolkata'>Kolkata</mat-option>
+              <mat-option value='Ahmedabad'>Ahmedabad</mat-option>
+              <mat-option value='Kerala'>Kerala</mat-option>
+              <mat-option value='Kanpur'>Kanpur</mat-option>
+              <mat-option value='Vijayawada'>Vijayawada</mat-option>
+              <mat-option value='Tirupati'>Tirupati</mat-option>
+            </mat-select>
+            <br>
+            <br>
+          <label class="lblfnt">Address</label>
+          <textarea class="form-control" cols="20" id="updatevcDesc" maxlength="250" name="firmDivisionDesc"
+            placeholder="Address" rows="5"></textarea>
+          <div class="pull-right" style="margin-top: 25px;">
+            <button class="btn btn-success" id="btnupdateFimrDiv" type="submit">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="" *ngIf="mainvalue=='Option Matrix' || mainvalue=='Option Zero'">
+      <div class="col-sm-12 clearfix gridrole"
+        style="border: 1px solid rgb(204, 204, 204); padding: 20px; border-radius: 3px;">
+        <h4 class="modal-title"><span style="padding-left: 13px;" class="bold">Edit Entity Details</span></h4>
+        <br>
+        <input data-val="true" data-val-number="The field intfirmtype must be a number." id="FirmDivisionid"
+          name="intfirmtype" type="hidden" value="36">
+        <div class="col-xs-12">
+          <label class="add-member-label add-member-input lblfnt">Entity Name</label>
+          <input class="form-control add-member-input fldbrder name FirstLetterCapital" value="{{mainvalue}}"
+            maxlength="15" type="text" placeholder="Enter Entity Name">
+          <br>
+          <label class="add-member-label add-member-input lblfnt">Entity Code</label>
+          <input onkeyup="this.value = this.value.toUpperCase()" class="form-control add-member-input fldbrder name FirstLetterCapital" value="OPTION"
+            maxlength="6" type="text" placeholder="Enter Entity Code">
+          <br>
+          <label class=" lblfnt">Contact Number</label>
+          <input class="form-control add-member-input fldbrder name FirstLetterCapital" value="999999999" maxlength="15"
+            type="number" placeholder="Enter Contact Number">
+          <br>
+          <label class="add-member-label add-member-input lblfnt">State</label>
+          <mat-select [value]="selectedlocationvalue" class="form-control">
+            <mat-option value='Hyderabad'>Telangana</mat-option>
+            <mat-option value='Chennai'>Tamilnadu</mat-option>
+            <mat-option value='Bangalore'>Karnataka</mat-option>
+            <mat-option value='Delhi'>Delhi</mat-option>
+            <mat-option value='Pune'>Maharashtra</mat-option>
+            <mat-option value='Kolkata'>West Bengal</mat-option>
+            <mat-option value='Ahmedabad'>Gujarat</mat-option>
+            <mat-option value='Kerala'>Kerala</mat-option>
+          </mat-select>
+          <br>
+          <br>
+          <label class="add-member-label add-member-input lblfnt">City</label>
+     <mat-select [value]="selectedlocationvalue" class="form-control">
+            <mat-option value='Hyderabad'>Hyderabad</mat-option>
+            <mat-option value='Chennai'>Chennai</mat-option>
+            <mat-option value='Bangalore'>Bangalore</mat-option>
+            <mat-option value='Delhi'>Delhi</mat-option>
+            <mat-option value='Pune'>Pune</mat-option>
+            <mat-option value='Mumbai'>Mumbai</mat-option>
+            <mat-option value='Kolkata'>Kolkata</mat-option>
+            <mat-option value='Ahmedabad'>Ahmedabad</mat-option>
+            <mat-option value='Kerala'>Kerala</mat-option>
+            <mat-option value='Kanpur'>Kanpur</mat-option>
+            <mat-option value='Vijayawada'>Vijayawada</mat-option>
+            <mat-option value='Tirupati'>Tirupati</mat-option>
+          </mat-select>
+          <br>
+          <br>
+          <label class=" lblfnt">Address</label>
+          <textarea class="form-control" cols="20" id="updatevcDesc" maxlength="250" name="firmDivisionDesc"
+            placeholder="Address" rows="5">
+Uptown Cyberabad Building, B block, 4th floor, 100 Feet Road, Ayyappa society, Madhapur, Hyderabad, Telangana 500081
+            </textarea>
+          <br>
+          <div class="pull-right" style="margin-top: 25px;">
+            <button class="btn btn-success marginbtn" id="btnupdateFimrDiv" type="submit">Update</button>
+            <button type="button" id="btn_firmdiv" class="btn btn-danger marginbtn" data-toggle="modal"
+              data-target="#Mymodel-FirmDivDelete" data-tooltip="tooltip" data-placement="top" title="" value=""
+              data-original-title="Delete">
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

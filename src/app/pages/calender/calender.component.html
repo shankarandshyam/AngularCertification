@@ -1,0 +1,4 @@
+<div *ngIf="options">
+  <ng-fullcalendar #fullcalendar [options]="options" (dayClick)="openMeetingDialog(null)" (eventClick)="openMeetingDialog($event.detail)" (eventDrop)="updateEvent($event.detail)"
+      (eventResize)="updateEvent($event.detail)" (clickButton)="clickButton($event.detail)"></ng-fullcalendar>
+</div>

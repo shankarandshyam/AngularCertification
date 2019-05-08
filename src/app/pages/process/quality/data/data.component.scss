@@ -1,0 +1,58 @@
+.example-tree-invisible {
+    display: none;
+  }
+  
+  .example-tree ul,
+  .example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+
+
+  
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+
+/* style for checkbox color starts here*/
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: rgb(27, 142, 241) !important;
+}
+
+::ng-deep .mat-ripple-element {
+  background: rgba(27, 142, 241, .4) !important;
+}
+/* Ends here */
+
+
+::ng-deep .ui-tree {
+  width: 100%;
+}
+::ng-deep  body .ui-tree {
+border: 0px;
+}
+
+::ng-deep body .ui-widget {
+font-family: "Poppins", "Helvetica Neue", sans-serif;
+font-size: 16px;
+text-decoration: none;
+}
+
+::ng-deep  :focus {
+outline: -webkit-focus-ring-color auto 0px;
+}
+
+::ng-deep body .ui-tree .ui-tree-container .ui-treenode .ui-treenode-content .ui-treenode-label.ui-state-highlight {
+background-color: white; 
+color: #333333;
+font-weight: bold
+}

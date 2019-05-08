@@ -1,0 +1,201 @@
+.marging{
+    margin: 25px;
+}
+
+.portlet-title{
+  background-color: #1a237e;
+  color: azure;
+  padding: 10px;
+}
+
+.example-tree-invisible {
+    display: none;
+  }
+
+ ::ng-deep .app.indigo-light .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #207ede !important;
+}
+
+ ::ng-deep .mat-radio-inner-circle, .app.indigo-light .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .app.indigo-light .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .app.indigo-light .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #40c1ff !important;
+}
+
+::ng-deep .mat-radio-outer-circle {
+    box-sizing: border-box;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: border-color ease 280ms;
+    width: 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50% !important;
+}
+
+
+::ng-deep .mat-radio-inner-circle {
+    border-radius: 50% !important;
+    box-sizing: border-box;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: transform ease 280ms,background-color ease 280ms;
+    width: 20px;
+    transform: scale(.001);
+}
+
+
+
+
+
+
+::ng-deep  :focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+
+
+.no-padding{
+    padding: 0;
+    margin: 0;
+}
+
+.close{
+    float: right;
+    color: black;
+}
+
+.radio-inline{
+    margin-left: 15px;
+}
+
+.margin-top{
+    margin-top: 10px;
+}
+
+.border{
+border: 1px solid #283593;    
+}
+
+.margin-top20{
+    margin-top: 20px;
+}
+
+.marging{
+    margin: 25px;
+}
+
+.pull-right{
+    float: right !important;
+}
+
+.portlet-title{
+  background-color: #1a237e;
+  color: azure;
+  padding: 10px;
+}
+
+.example-tree-invisible {
+    display: none;
+  }
+
+ ::ng-deep .app.indigo-light .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #207ede !important;
+}
+
+ ::ng-deep .mat-radio-inner-circle, .app.indigo-light .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .app.indigo-light .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .app.indigo-light .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #40c1ff !important;
+}
+
+::ng-deep .mat-radio-outer-circle {
+    box-sizing: border-box;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: border-color ease 280ms;
+    width: 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50% !important;
+}
+
+::ng-deep .mat-radio-inner-circle {
+    border-radius: 50% !important;
+    box-sizing: border-box;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: transform ease 280ms,background-color ease 280ms;
+    width: 20px;
+    transform: scale(.001);
+}
+
+::ng-deep .app.indigo-light .mat-slide-toggle-bar {
+    background-color: rgba(0, 0, 0, 0.38);
+    border-radius: 30px !important;
+}
+
+::ng-deep .app.indigo-light .mat-slide-toggle-thumb {
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    background-color: #fafafa;
+    border-radius: 50% !important;
+}
+
+::ng-deep.app.indigo-light .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: rgb(64, 193, 255) !important;
+}
+
+::ng-deep .app.indigo-light .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #167ed6 !important;
+}
+
+::ng-deep :focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+::ng-deep body .ui-slider.ui-slider-horizontal {
+    height: 0.286em;
+    border: 0px !important;
+    margin-left: 10px;
+
+}
+
+.customDisabled{
+    background-color: #45B6AF;
+    border-color: #3ea49d;
+    cursor: not-allowed;
+    pointer-events:none !important;
+    opacity: .65;
+}
+
+.no-padding{
+    padding: 0;
+    margin: 0;
+}
+
+.close{
+    float: right;
+    color: black;
+}
+
+.radio-inline{
+    margin-left: 15px;
+}
+
+
+.border{
+border: 1px solid #283593;    
+}
+
+::ng-deep body .ui-slider .ui-slider-handle {
+    height: 1.143em;
+    width: 1.143em;
+    background-color: #ffffff;
+    border: 2px solid #666666;
+    border-radius: 100% !important;
+    transition: border-color 0.2s;
+}

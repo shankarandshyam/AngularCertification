@@ -1,0 +1,30 @@
+<h1 mat-dialog-title><span *ngIf="!form.controls.isEdit.value">Add</span><span *ngIf="form.controls.isEdit.value">Edit</span> Candidate</h1>
+<div mat-dialog-content>
+    <form class="form-horizontal">
+        <!-- <mat-form-field class="w-100">
+          <select matInput placeholder="Meeting type" formControlName="meetingType">
+            <option value="">--Select--</option>
+            <option value="prospects">Prospects</option>
+          </select>
+        </mat-form-field> -->
+
+        <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Agenda : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                  <input type="email" class="form-control" id="email" placeholder="Enter Agenda">
+                </div>
+        </div>
+      
+        <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Remarks : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <textarea class="form-control txtarea" rows="1" placeholder="Remarks"></textarea>
+                </div>
+        </div>
+
+    </form>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-raised-button (click)="close()" class="add-dark-hover btn-default">Cancel</button>
+    <button mat-raised-button [mat-dialog-close]="form.value" (click)="saveMeeting()" class="add-hover btn-success"><span *ngIf="!form.controls.isEdit.value">Save</span><span *ngIf="form.controls.isEdit.value">Update</span></button>
+</div> 
