@@ -14,6 +14,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { FullCalendarModule } from 'ng-fullcalendar';
+import { ToastrModule } from 'ngx-toastr';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
   suppressScrollX: true               
@@ -69,7 +70,8 @@ import { CalenderComponent } from './pages/calender/calender.component';
     NgbPaginationModule, NgbAlertModule,
     NgxDaterangepickerMd,
     Daterangepicker,
-    FullCalendarModule
+    FullCalendarModule,
+    ToastrModule.forRoot()
   ],
   declarations: [
     AppComponent,

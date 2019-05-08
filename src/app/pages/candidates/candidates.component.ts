@@ -3,6 +3,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { MatDialog} from '@angular/material';
 import { UpsertcandidateComponent } from './upsertcandidate/upsertcandidate.component';
 import { FormControl,FormBuilder,FormGroup,Validators, Form } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr'; 
 
 @Component({
   selector: 'app-candidates',
@@ -30,26 +31,21 @@ export class CandidatesComponent implements OnInit {
    }
 
 
-   constructor(private modalService: BsModalService, private fb:FormBuilder) {
+   constructor(private modalService: BsModalService, private fb:FormBuilder, private toastr: ToastrService) {
     this.createUserForm();
     }
     createUserForm() {
       this.addCandidateForm = this.fb.group({
         candname:new FormControl('',[Validators.maxLength(50),Validators.required]),
-        candemail:new FormControl('',[Validators.maxLength(50),Validators.required])
-
+        candemail:new FormControl('',[Validators.maxLength(50),Validators.required, Validators.email]),
+        // candsubmit:new FormControl('')
       });
 
     }
-    emailValidator(control: FormControl): {[key: string]: any} {
-      var emailRegexp = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;    
-      if (control.value && !emailRegexp.test(control.value)) {
-          return {invalidEmail: true};
-      }
-  }
-
+    
     get candname(){ return this.addCandidateForm.get('candname');}
     get candemail(){ return this.addCandidateForm.get('candemail');}
+    // get candsubmit(){ return this.addCandidateForm.get('candsubmit');}
 
   //constructor(public dialog: MatDialog) { }
   // openMeetingDialog() {
@@ -65,4 +61,14 @@ export class CandidatesComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(){
+    console.log("Toastrout");
+    if(this.addCandidateForm.valid){
+      console.log("Toastr");
+      this.toastr.success("Candidate Saved successfully", 'success');
+    }
+    else{
+      this.toastr.error("Please enter valid values", 'error');
+    }
+  }
 }
